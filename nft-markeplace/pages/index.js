@@ -12,7 +12,7 @@ import NFTMarketplace from '../artifacts/contracts/NFTMarketplace.sol/NFTMarketp
 export default function Home() {
   const [nfts, setNfts] = useState([])
   const [loadingState, setLoadingState] = useState('not-loaded')
-  
+
   useEffect(() => {
     loadNFTs()
   }, [])
@@ -40,7 +40,7 @@ export default function Home() {
       }
       return item
     }))
-    
+
     setNfts(items)
     setLoadingState('loaded')
   }
@@ -67,14 +67,14 @@ export default function Home() {
   return (
     <div className="flex justify-center">
       <div className="px-4" style={{ maxWidth: '1600px' }}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-32 pt-4">
           {
             nfts.map((nft, i) => (
-              <div key={i} className="border shadow rounded-xl overflow-hidden">
-                <img src={nft.image} />
+              <div key={i} className="w-[400px] flex flex-col justify-between border shadow rounded-xl overflow-hidden">
+                <img className="w-[100%]" src={nft.image} />
                 <div className="p-4">
-                  <p style={{ height: '64px' }} className="text-2xl font-semibold">{nft.name}</p>
-                  <div style={{ height: '70px', overflow: 'hidden' }}>
+                  <p style={{}} className="text-2xl font-semibold">{nft.name}</p>
+                  <div style={{ overflow: 'hidden' }}>
                     <p className="text-gray-400">{nft.description}</p>
                   </div>
                 </div>
