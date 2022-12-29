@@ -1,8 +1,8 @@
 require("@nomiclabs/hardhat-waffle");
 
 const fileService = require("fs");
-const privateKey = fileService.readFileSync(".secret").toString();
-const projectId = "f1d62f88984f452485f294cb4628f4d6";
+const privateKey = fileService.readFileSync(".secretAccount").toString();
+const projectId = fileService.readFileSync(".secretProject").toString();
 
 module.exports = {
   networks: {
@@ -15,6 +15,10 @@ module.exports = {
     },
     auroraMainnet: {
       url: `https://aurora-mainnet.infura.io/v3/${projectId}`,
+      accounts: [privateKey]
+    },
+    mumbai: {
+      url: `https://polygon-mumbai.infura.io/v3/${projectId}`,
       accounts: [privateKey]
     }
   },
